@@ -40,5 +40,19 @@ namespace Neighlink.Api.Tests
             Assert.AreEqual(rep.GetPaymentsByBill(1), expected);
 
         }
+       
+        [TestMethod]
+        public void HU04()
+        {
+            News noticia = new News();
+
+            NewRepository rep = new NewRepository(context);
+            noticia.CondominiumId = 1;
+            IEnumerable<News> expected;
+            expected = rep.GetNewsByCondominium(noticia.CondominiumId);
+
+            Assert.AreEqual(rep.GetNewsByCondominium(1), expected);
+
+        }
     }
 }
