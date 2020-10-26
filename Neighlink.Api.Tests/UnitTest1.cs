@@ -23,6 +23,25 @@ namespace Neighlink.Api.Tests
         ApplicationDbContext context;
         IOptions<PrivateSettings> settings;
 
+        [TestMethod]
+        public void HU02()
+        {
+            PaymentRepository rep = new PaymentRepository(context);
+            pago.UserId = 1;
+            IEnumerable<Payment> expected;
+            expected = rep.GetPaymentsByBill(pago.UserId);
+            Assert.AreEqual(rep.GetPaymentsByBill(1), expected);
+
+        }
+
+        [TestMethod]
+        public void HU03()
+        {
+            PaymentRepository rep = new PaymentRepository(context);
+            Assert.IsTrue(rep.Save(pago));
+
+        }
+
 
         [TestMethod]
         public void HU07()
