@@ -14,8 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Neighlink.Api\Neighlink.Api.csproj" />
     <ProjectReference Include="..\Neighlink.Entity\Neighlink.Entity.csproj" />
     <ProjectReference Include="..\Neighlink.Repository\Neighlink.Repository.csproj" />
+    <ProjectReference Include="..\Neighlink.Service\Neighlink.Service.csproj" />
   </ItemGroup>
 
 </Project>

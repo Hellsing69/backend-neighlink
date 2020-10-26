@@ -6,11 +6,11 @@ using Neighlink.Repository;
 
 namespace Neighlink.Service.Implementation
 {
-    public class UserService : IUserService
+    public class IUserService : Service.IUserService
     {
         private IUserRepository userRepository;
 
-        public UserService(IUserRepository userRepository)
+        public IUserService(IUserRepository userRepository)
         {
             this.userRepository = userRepository;
         }

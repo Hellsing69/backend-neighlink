@@ -86,7 +86,7 @@ namespace Neighlink.Api
             services.AddTransient<IPollService,PollService>();
 
             services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserService, IUserService>();
 
             services.AddTransient<IPaymentRepository, PaymentRepository>();
             services.AddTransient<IPaymentService, PaymentService>();
