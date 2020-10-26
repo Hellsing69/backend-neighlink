@@ -20,6 +20,7 @@ namespace Neighlink.Api.Tests
     {
         private Payment pago = new Payment();
         private User usuario = new User();
+        
         ApplicationDbContext context;
         IOptions<PrivateSettings> settings;
 
@@ -46,7 +47,6 @@ namespace Neighlink.Api.Tests
         [TestMethod]
         public void HU07()
         {
-            
             UserRepository rep = new UserRepository(context, settings);
             usuario = rep.Authenticate("correo@gmail.com", "21312");
             Assert.AreEqual(rep.Authenticate("correo@gmail.com", "21312"),usuario);
@@ -64,5 +64,26 @@ namespace Neighlink.Api.Tests
             Assert.AreEqual(rep.GetPaymentsByBill(1), expected);
 
         }
+
+        [TestMethod]
+        public void HU01()
+        {
+            User user;
+            UserRepository rep = new UserRepository(context, settings);
+            user = rep.Authenticate("correo@gmail.com", "21312");
+            Assert.AreEqual(rep.Authenticate("correo@gmail.com", "21312"), user);
+
+        }
+
+        [TestMethod]
+        public void HU06()
+        {
+            Condominium cond = new Condominium();
+            usuario.Id = 1;
+            CondominiumRepository rep = new CondominiumRepository(context);
+            Assert.AreEqual(rep.Get(usuario.Id),cond);
+
+        }
+
     }
 }
